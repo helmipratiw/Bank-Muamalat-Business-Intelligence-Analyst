@@ -1,0 +1,12 @@
+SELECT Date as order_date,
+      CategoryName as category_name,
+      ProdName as product_name,
+      Price as product_price,
+      Quantity as order_qty,
+      Price*Quantity as total_sales,
+      CustomerEmail as cust_email,
+      CustomerCity as cust_city
+FROM `natural-choir-418310.Bank_Muamalat.Orders` 
+INNER JOIN `natural-choir-418310.Bank_Muamalat.Customers`ON `natural-choir-418310.Bank_Muamalat.Orders`.CustomerID=`natural-choir-418310.Bank_Muamalat.Customers`.CustomerID 
+INNER JOIN `natural-choir-418310.Bank_Muamalat.Products` ON `natural-choir-418310.Bank_Muamalat.Orders`.ProdNumber=`natural-choir-418310.Bank_Muamalat.Products`.ProdNumber 
+INNER JOIN `natural-choir-418310.Bank_Muamalat.ProductCategory` ON `natural-choir-418310.Bank_Muamalat.Products`.Category=`natural-choir-418310.Bank_Muamalat.ProductCategory`.CategoryID ORDER BY order_date
